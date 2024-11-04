@@ -447,18 +447,7 @@ input[type="email"] {
   list-style-type: square; /* Use square bullets for lists */
 }
 
-/* Blog Post Styles */
-.blog-post {
-  background-color: #1e0000; /* Light background for blog post */
-  border-left: 5px solid #007bff; /* Left border for emphasis */
-  padding: 20px; /* Padding for inner content */
-  margin: 20px; /* Margin for spacing */
-  width: calc(45% - 40px); /* Same width as cards for alignment */
-  max-width: 600px; /* Maximum width */
-  text-align: right; /* Align text within the blog post to the right */
-  border-radius: 10px; /* Match card style */
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-}
+
 
 .post-date {
   font-size: 14px; /* Smaller font size for the date */
