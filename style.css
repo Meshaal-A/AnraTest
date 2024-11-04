@@ -1,0 +1,905 @@
+/* Import Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap");
+
+/* Define CSS variables */
+:root {
+  --maroon: #9e0000;
+  --light-bg: #ffffff;
+  --white: #000000;
+  --transparent-black: rgba(158, 2, 2, 0.5);
+}
+
+/* Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  color: var(--light-bg);
+  background: rgb(69, 0, 17);
+  overflow-x: hidden;
+}
+
+h1,
+h2 {
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+/* Menu List Styling */
+.menu-list {
+  top: 0%;
+  background-color: #250606; /* Dark background color */
+  padding: 10px 15px; /* Padding around the navbar */
+  display: flex; /* Flexbox layout */
+  justify-content: center; /* Center items horizontally */
+  align-items: center; /* Center items vertically */
+  z-index: 100; /* Ensure it stays above other content */
+  gap: 15px; /* Space between items */
+  margin: 0; /* Remove default margin */
+}
+
+/* Link Styles */
+.menu-list a {
+  text-decoration: none; /* No underline */
+  color: white; /* Text color */
+  font-size: 0.9rem; /* Font size */
+  transition: color 0.3s ease; /* Smooth color transition */
+}
+
+.menu-list a:hover {
+  color: lightgray; /* Change color on hover */
+}
+
+.contact-details {
+  position: absolute;
+  top: 10px;
+  right: 40px;
+  color: #ffcccb;
+}
+
+.social-icons a {
+  margin: 0 5px;
+}
+
+.social-icons img {
+  width: 20px;
+  height: 20px;
+  transition: transform 0.3s ease;
+}
+
+.social-icons img:hover {
+  transform: scale(1.1);
+}
+
+/* Hero Section */
+.hero {
+  position: relative;
+  height: 100vh; /* Full viewport height */
+  background: url("1725544780122.jpg") center center / cover no-repeat fixed; /* Parallax background image */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  padding: 0 30px;
+  font-family: "Inter", sans-serif;
+  overflow: hidden; /* Hide overflow for effects */
+}
+
+/* Gradient Overlay hero*/
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    rgba(19, 8, 8, 0.85),
+    rgba(67, 4, 0, 0.7)
+  ); /* Soft gradient */
+  z-index: 1;
+}
+
+/* Content Styling a vison for tomorrw */
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+}
+
+.hero h1 {
+  font-size: 4.5rem;
+  font-weight: 900;
+  margin-bottom: 1rem;
+  text-shadow: 2px 4px 8px rgba(0, 0, 0, 0.4); /* Text shadow for better readability */
+  animation: fadeIn 1.5s ease-in-out; /* Smooth fade-in animation */
+  color: #ffffff;
+}
+
+.hero p {
+  font-size: 1.8rem;
+  margin-bottom: 2rem;
+  font-weight: 400;
+  color: #f5f5f5;
+  text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.3); /* Light shadow for text */
+  animation: fadeIn 2s ease-in-out;
+}
+
+.cta-button {
+  padding: 15px 40px;
+  background-color: #a00000; /* Deeper maroon for button */
+  color: #fff;
+  border-radius: 50px; /* Rounded pill-shaped button */
+  text-decoration: none;
+  font-size: 1.2rem;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* Button shadow */
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.cta-button:hover {
+  background-color: #8a0000; /* Darker maroon on hover */
+  transform: scale(1.1); /* Slight hover scaling */
+}
+
+/* Projects Section */
+#projects {
+  background-color: var(--light-bg); /* Light background */
+  color: var(--maroon); /* Use theme color */
+  padding: 50px 0;
+  text-align: center;
+}
+
+#projects h2:hover {
+  transform: scale(1.1); /* Transforms */
+}
+
+/* Project Grid */
+.project-grid {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+/* Project Card */
+.project-card {
+  background: #fff; /* Keeping the background white for contrast */
+  padding: 20px;
+  border-radius: 10px; /* Rounded corners */
+  margin: 10px;
+  box-shadow: 0 4px 10px rgba(174, 0, 0, 0.1); /* Shadows */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transitions */
+  width: 300px; /* Set a fixed width */
+  text-align: center; /* Center text within cards */
+  border: 2px solid var(--maroon); /* Border with AKD theme color */
+  background-color: rgba(159, 0, 0, 0.05); /* Light maroon background for a subtle effect */
+}
+
+/* Video Styling */
+.project-video {
+  width: 100%;
+  height: 200px; /* Adjusted height for uniformity */
+  border-radius: 8px; /* Rounded corners for videos */
+  margin-top: 10px; /* Space above video */
+}
+
+/* Contact Form hero */
+#contact {
+  background: linear-gradient(135deg, #3f0000, #ad1210); /* Gradient */
+  padding: 50px 0;
+  text-align: center;
+}
+
+#contact form {
+  max-width: 600px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+#contact input,
+#contact textarea {
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 30px; /* Rounded corners */
+  border: 2px solid #800000; /* Border */
+  transition: border-color 0.3s ease; /* Transitions */
+}
+
+input[type="email"] {
+  font-style: italic;
+}
+
+#contact input:valid,
+#contact textarea:valid {
+  border-color: #28a745;
+}
+
+#contact input:invalid,
+#contact textarea:invalid {
+  border-color: #dc3545;
+}
+
+#contact input:focus,
+#contact textarea:focus {
+  border-color: #ffcccb;
+}
+
+#contact button {
+  background: linear-gradient(
+    135deg,
+    #ffcccb,
+    #ff9999
+  ); /* Gradient background */
+  color: #4a1f1f; /* Darker text color for contrast */
+  padding: 12px 24px; /* Slightly larger padding */
+  border: none; /* Remove border for a clean look */
+  border-radius: 50px; /* Fully rounded corners for a modern feel */
+  font-size: 1rem; /* Increased font size */
+  font-weight: bold; /* Bold text */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Transitions */
+}
+
+#contact button:hover {
+  background-color: #f8f8f8; /* Slightly lighter background on hover */
+  transform: translateY(-2px); /* Slight lift effect on hover */
+}
+
+/* main Footer home */
+.footer {
+  background-color: #ffffff;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  border-top: 1px solid #e0e0e0;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1); /* Shadows */
+}
+
+.footer .footer-container {
+  max-width: 1200px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  width: 100%;
+  justify-items: center;
+}
+
+.footer h4 {
+  font-weight: 700;
+  margin-bottom: 15px;
+  color: #333;
+  font-size: 18px;
+}
+
+.footer p,
+.footer a {
+  font-size: 14px;
+  color: #555;
+  text-decoration: none;
+  transition: color 0.3s ease; /* Transitions */
+}
+
+.footer a:hover {
+  color: #d32f2f;
+  text-decoration: underline;
+}
+
+.footer .contact-info,
+.footer .resources,
+.footer .helpful-links {
+  margin-bottom: 30px;
+}
+
+.footer .social-icons {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+.footer .social-icons a {
+  margin: 0 15px;
+  font-size: 24px;
+  color: #555;
+  transition: color 0.3s ease, transform 0.3s ease; /* Transitions */
+}
+
+.footer .social-icons a:hover {
+  color: #d32f2f;
+  transform: scale(1.1); /* Transforms */
+}
+
+/* NPP Logo */
+.footer .npp-logo {
+  margin-bottom: 20px;
+}
+
+.footer .footer-logo img {
+  width: 120px;
+  height: auto;
+}
+
+/* Copyright Text */
+.footer .copyright {
+  font-size: 12px;
+  margin-top: 20px;
+  color: #777;
+  text-align: center;
+}
+
+#policies {
+  padding: 40px 20px; /* Adjusted padding */
+  background: linear-gradient(
+    135deg,
+    rgba(128, 0, 0, 1),
+    rgb(0, 0, 0),
+    rgb(165, 0, 0)
+  ); /* Top-notch gradient */
+  display: flex; /* Use flexbox for card layout */
+  flex-wrap: wrap; /* Allow cards to wrap */
+  justify-content: center; /* Center align cards */
+  border-radius: 10px; /* Smooth edges of the section */
+}
+
+.policy-category {
+  background: #3d0000; /* White background for contrast */
+  margin: 20px; /* Added margin for spacing */
+  padding: 20px; /* Slightly adjusted padding */
+  border-radius: 10px; /* Smooth corners */
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15); /* Subtle shadow */
+  transition: transform 0.3s, box-shadow 0.3s; /* Transition for hover effect */
+  width: 280px; /* Fixed width */
+  text-align: center; /* Center text within cards */
+  cursor: pointer; /* Change cursor to pointer */
+  position: relative; /* For pseudo-elements */
+  overflow: hidden; /* Prevent overflow */
+}
+
+.policy-category::before {
+  content: ""; /* Pseudo-element for decorative effect */
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(154, 76, 76, 0.15); /* Light maroon overlay */
+  opacity: 0; /* Start hidden */
+  transition: opacity 0.3s; /* Transition for overlay */
+  z-index: 0; /* Send overlay behind content */
+}
+
+.policy-category:hover::before {
+  opacity: 1; /* Show overlay on hover */
+}
+
+.policy-image {
+  max-width: 100%; /* Ensure image fits within card */
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 5px; /* Rounded image edges */
+  margin-bottom: 15px; /* Space below the image */
+  z-index: 1; /* Bring image above overlay */
+  position: relative; /* Keep image in proper stacking context */
+}
+
+.policy-category:hover {
+  transform: translateY(-8px); /* Lift effect on hover */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); /* Deeper shadow on hover */
+}
+
+.policy-link {
+  display: inline-block; /* Ensure button displays correctly */
+  margin-top: 15px; /* Space above the button */
+  padding: 10px 20px; /* Padding for button */
+  background-color: var(--maroon); /* Use AKD theme color for buttons */
+  color: white; /* White text */
+  text-decoration: none; /* Remove underline */
+  border-radius: 5px; /* Rounded button edges */
+  transition: background-color 0.3s, transform 0.3s; /* Transition for button hover */
+  z-index: 1; /* Bring button above overlay */
+  position: relative; /* Keep button in proper stacking context */
+}
+
+.policy-link:hover {
+  background-color: rgba(128, 0, 0, 1); /* Darker shade on hover */
+  transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+/* Card Styles */
+.card {
+  background-color: rgb(47, 1, 1);
+  border-radius: 10px; /* Slightly larger border radius */
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2); /* Deeper shadow for depth */
+  padding: 30px; /* Increased padding for better spacing */
+  margin: 20px; /* Adjusted margin for spacing */
+  width: calc(
+    45% - 9Z0px
+  ); /* Adjust width to fit two cards per row, accounting for margin */
+  max-width: 600px; /* Maximum width */
+  transition: transform 0.3s, box-shadow 0.3s; /* Smooth transition effects */
+  text-align: left; /* Align text within the card to the right */
+  border: 1px solid #e0e0e0; /* Subtle border for added definition */
+  background-color: #180000; /* Ensure background is white */
+}
+
+.card:hover {
+  transform: translateY(-5px); /* Slight lift effect on hover */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Enhance shadow on hover */
+}
+
+.card h2 {
+  margin-top: 0;
+  font-size: 24px; /* Adjusted font size for better readability */
+  color: #ffffff; /* Darker heading color */
+  line-height: 1.2; /* Improved line spacing for readability */
+}
+
+.card ul {
+  padding-left: 20px;
+  margin: 15px 0; /* Add margin for better spacing */
+  list-style-type: square; /* Use square bullets for lists */
+}
+
+/* Blog Post Styles */
+.blog-post {
+  background-color: #1e0000; /* Light background for blog post */
+  border-left: 5px solid #007bff; /* Left border for emphasis */
+  padding: 20px; /* Padding for inner content */
+  margin: 20px; /* Margin for spacing */
+  width: calc(45% - 40px); /* Same width as cards for alignment */
+  max-width: 600px; /* Maximum width */
+  text-align: right; /* Align text within the blog post to the right */
+  border-radius: 10px; /* Match card style */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.post-date {
+  font-size: 14px; /* Smaller font size for the date */
+  color: #6c757d; /* Grey color for date */
+  margin-bottom: 15px; /* Margin for spacing */
+}
+/* //aboutpage */
+#body {
+  position: relative; /* Necessary for absolute positioning of the overlay */
+}
+
+#body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    linear-gradient(rgba(0, 0, 0, 0.5), rgba(9, 0, 0, 0.5)), /* Gradient overlay */
+    url("pexels-codioful-7135037.jpg") no-repeat center center fixed; /* Background image */
+  background-size: cover; /* Adjusts the background size */
+  filter: blur(7px); /* Adjust the blur level as needed */
+  z-index: -100; /* Position behind the content */
+}
+
+
+.anura-container {
+  position: relative; /* Ensures content is above the blurred background */
+  z-index: 1; /* Raise the content above the background */
+}
+
+
+/* Biography Card */
+.anura-biography-card {
+  background: #ffffffd8; /* Background color */
+  color: rgb(0, 0, 0);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(8px);
+  margin: 20px auto;
+  text-align: center; /* Center text */
+  width: 100%; /* Full width */
+  max-width: 1000px; /* Limit maximum width */
+  transition: box-shadow 0.3s ease; /* Smooth shadow transition */
+}
+
+.anura-biography-card:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Elevate card on hover */
+}
+
+/* Center-align h1, h2, and p elements */
+h1,
+h2,
+p {
+  margin: 15px 0;
+  text-align: center; /* Center text */
+}
+
+/* Hero Section with Blur Effect */
+.anura-hero {
+  position: relative;
+  color: white;
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.9), rgba(136, 0, 0, 0.8)),
+   ;
+  background-size: cover; /* Ensures the image covers the section */
+  background-position: center center; /* Centers the background image */
+  padding: 80px 20px; /* Increased padding for more emphasis */
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* Hero Content */
+.anura-hero-content {
+  max-width: 800px;
+  padding: 20px;
+  z-index: 1;
+}
+
+/* Hero Heading */
+.anura-hero h1 {
+  font-size: 2.5em;
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); /* Soft shadow for depth */
+}
+
+/* Hero Paragraph */
+.anura-hero p {
+  font-size: 1.2em;
+  line-height: 1.6;
+}
+
+/* Achievements Section */
+.anura-achievements {
+  display: flex;
+  justify-content: center;
+  padding: 25px 0;
+}
+
+/* Core Values Grid */
+.anura-values-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 15px; /* Gap between items */
+  list-style-type: none; /* Remove default list styling */
+  padding: 0; /* Remove padding */
+  margin: 0 auto; /* Center grid within the section */
+  max-width: 800px; /* Adjust for desired layout width */
+}
+
+/* Biography Card */
+.anura-biography-card {
+  background: #ffffffd8; /* Background color */
+  color: rgb(0, 0, 0);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(8px);
+  margin: 20px auto; /* Center card */
+  text-align: center; /* Center text */
+  width: 100%; /* Full width */
+  max-width: 1000px; /* Limit maximum width */
+  transition: box-shadow 0.3s ease; /* Smooth shadow transition */
+}
+
+.anura-biography-card:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Elevate card on hover */
+}
+
+/* Centering the Achievements Grid */
+.anura-achievements ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(255px, 1fr));
+  gap: 20px;
+  list-style-type: none;
+  padding: 25px 10px 10px;
+  margin: 0 auto;
+  max-width: 1000px; /* Control the width for centering */
+}
+
+.anura-achievements li {
+  background: linear-gradient(135deg, #d22412, rgba(170, 54, 54, 0.7));
+  color: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Smoother transition */
+  text-align: center; /* Center text in achievements */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+}
+
+.anura-achievements li::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: inherit;
+  filter: blur(50px);
+  z-index: -1;
+  border-radius: inherit;
+}
+
+.anura-achievements li:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+}
+
+.anura-achievements li strong {
+  font-size: 1.15em;
+  margin-bottom: 8px;
+}
+
+
+
+/* Background Blur with Pseudo-element */
+.anura-vision::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: inherit; /* Use the same background as the section */
+  filter: blur(300px); /* Reduced blur for visibility */
+  z-index: -1; /* Behind the content */
+}
+
+/* Title Styles */
+.anura-section-title {
+  text-align: center; /* Center title */
+  font-size: 2.5em; /* Title size */
+  margin-bottom: 20px; /* Space below the title */
+  font-weight: bold; /* Bold title */
+  text-transform: uppercase; /* Uppercase for impact */
+  letter-spacing: 1px; /* Add spacing for cleanliness */
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); /* Soft shadow for depth */
+}
+
+/* Paragraph Styles */
+#anura-vision p {
+  font-size: 1.2em; /* Font size for paragraph */
+  line-height: 1.6; /* Line height for readability */
+  margin: 20px auto; /* Center paragraph with margin */
+  max-width: 800px; /* Max width for readability */
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5); /* Soft shadow for depth */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  #anura-vision {
+    padding: 40px 15px; /* Adjust padding for smaller screens */
+    min-height: 250px; /* Ensure sufficient height on mobile */
+  }
+
+  .anura-section-title {
+    font-size: 2em; /* Smaller title size on mobile */
+  }
+
+  #anura-vision p {
+    font-size: 1.1em; /* Slightly smaller font size on mobile */
+  }
+}
+
+/* Core Values Section Container */
+.anura-values {
+  display: flex;
+  justify-content: center;
+  padding: 205px 0;
+}
+
+
+
+.anura-value-item {
+  background: linear-gradient(135deg, #d22412, rgba(170, 54, 54, 0.7));
+  color: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(10px); /* Optional for a blur effect */
+  max-height: 200px; /* Consistent height */
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.anura-value-item::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: inherit;
+  filter: blur(50px);
+  z-index: -1;
+  border-radius: inherit;
+}
+
+.anura-value-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+}
+
+.anura-value-item h3 {
+  font-size: 1.15em;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.anura-value-item p {
+  font-size: 0.9em;
+  line-height: 1.4;
+  margin: 0;
+}
+
+
+/* Footer Styles */
+.anura-footer {
+  background-color: #222;
+  color: white;
+  padding: 20px;
+  text-align: center; /* Center text in footer */
+}
+
+.anura-footer p {
+  margin: 0;
+}
+
+/* Footer Styles */
+footer {
+  background: #2d2d2d; /* Dark footer background */
+  color: white; /* White text */
+  text-align: center; /* Center text */
+  padding: 20px; /* Padding for spacing */
+  margin-top: 20px; /* Space above footer */
+  border-radius: 0 0 12px 12px; /* Rounded corners */
+}
+
+/* Footer Section */
+.anura-footer {
+  background-color: #a83232; /* Footer background color */
+  color: white; /* Footer text color */
+  text-align: center; /* Center footer text */
+  padding: 20px 0; /* Padding for footer */
+  background: linear-gradient(
+    135deg,
+    rgba(121, 0, 0, 0.9),
+    rgba(170, 54, 54, 0.7)
+  );
+}
+
+.anura-footer-logo img {
+  max-width: 150px; /* Logo size */
+  margin-bottom: 10px; /* Space below logo */
+}
+
+.anura-social-icons {
+  display: flex; /* Flex layout for social icons */
+  justify-content: center; /* Center social icons */
+  gap: 15px; /* Space between icons */
+  margin-top: 10px; /* Space above icons */
+}
+
+.anura-social-icons a {
+  color: white; /* Social icon color */
+  font-size: 1.5em; /* Icon size */
+  transition: color 0.3s; /* Transition for hover effect */
+}
+
+.anura-social-icons a:hover {
+  color: #ffcc00; /* Gold color on hover */
+}
+
+/* Contact Form conatct page */
+/* General Navbar Styling */
+header nav {
+  background-color: #2d0101; /* Dark red */
+  padding: 10px 0;
+}
+
+header nav ul {
+  list-style-type: none;
+  display: flex;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+}
+
+header nav ul li {
+  margin: 0 15px;
+}
+
+header nav ul li a {
+  color: #fff; /* White text */
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+header nav ul li a:hover {
+  color: #ffcccb; /* Soft pink on hover */
+}
+#contact {
+  background: linear-gradient(135deg, #3f0000, #ad1210); /* Gradient */
+  padding: 50px 0;
+  text-align: center;
+}
+
+#contact form {
+  max-width: 600px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+#contact input,
+#contact textarea {
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 30px; /* Rounded corners */
+  border: 2px solid #800000; /* Border */
+  transition: border-color 0.3s ease; /* Transitions */
+}
+
+input[type="email"] {
+  font-style: italic;
+}
+
+#contact input:valid,
+#contact textarea:valid {
+  border-color: #28a745;
+}
+
+#contact input:invalid,
+#contact textarea:invalid {
+  border-color: #dc3545;
+}
+
+#contact input:focus,
+#contact textarea:focus {
+  border-color: #ffcccb;
+}
+
+#contact button {
+  background: linear-gradient(
+    135deg,
+    #ffcccb,
+    #ff9999
+  ); /* Gradient background */
+  color: #4a1f1f; /* Darker text color for contrast */
+  padding: 12px 24px; /* Slightly larger padding */
+  border: none; /* Remove border for a clean look */
+  border-radius: 50px; /* Fully rounded corners for a modern feel */
+  font-size: 1rem; /* Increased font size */
+  font-weight: bold; /* Bold text */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Transitions */
+}
+
+#contact button:hover {
+  background-color: #f8f8f8; /* Slightly lighter background on hover */
+  transform: translateY(-2px); /* Slight lift effect on hover */
+}
