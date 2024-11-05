@@ -16,11 +16,46 @@
   list-style-type: none;
 }
 
+/* Compact Navbar Styling */
+nav {
+  background-color: #5f0900; /* Dark maroon color */
+  overflow-x: auto; /* Enable horizontal scrolling */
+  white-space: nowrap; /* Prevent items from wrapping */
+}
+
+.menu-list {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 8px; /* Reduced gap for compact spacing */
+  padding: 0;
+  margin: 0;
+}
+
+.menu-list li {
+  margin: 0;
+}
+
+.menu-list a {
+  color: #ffffff; /* White text */
+  text-decoration: none;
+  font-weight: bold;
+  padding: 4px 6px; /* Smaller padding for shorter rectangles */
+  font-size: 0.85rem; /* Slightly smaller font size for compact look */
+  transition: color 0.3s ease;
+}
+
+.menu-list a:hover {
+  color: #ffc107; /* Golden hover color */
+}
+
+/* Body Styling */
 body {
-  font-family: "Poppins", sans-serif;
+  font-family: "Inter", sans-serif;
   color: var(--light-bg);
-  background: rgb(69, 0, 17);
+  background: rgb(0, 0, 0); /* Dark background for full coverage */
   overflow-x: hidden;
+  line-height: 1.6; /* For better readability */
 }
 
 h1,
@@ -60,6 +95,7 @@ h2 {
   color: #ffcccb;
 }
 
+/* Social Media Icons */
 .social-icons a {
   margin: 0 5px;
 }
@@ -89,7 +125,7 @@ h2 {
   overflow: hidden; /* Hide overflow for effects */
 }
 
-/* Gradient Overlay hero*/
+/* Gradient Overlay hero */
 .hero::before {
   content: "";
   position: absolute;
@@ -98,38 +134,61 @@ h2 {
   width: 100%;
   height: 100%;
   background: linear-gradient(
-    120deg,
-    rgba(19, 8, 8, 0.85),
-    rgba(67, 4, 0, 0.7)
+    17deg,
+    rgba(0, 0, 0, 0.85),
+    rgba(161, 11, 0, 0.7)
   ); /* Soft gradient */
   z-index: 1;
 }
 
-/* Content Styling a vison for tomorrw */
+/* Content Styling a vision for tomorrow */
 .hero-content {
   position: relative;
   z-index: 2;
   max-width: 900px;
 }
 
+/* Hero Section */
+.hero {
+  display: flex; /* Use Flexbox for alignment */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  height: 100vh; /* Full viewport height */
+  text-align: center; /* Center text within the container */
+}
+
+/* Typing Effect */
 .hero h1 {
   font-size: 4.5rem;
   font-weight: 900;
   margin-bottom: 1rem;
-  text-shadow: 2px 4px 8px rgba(0, 0, 0, 0.4); /* Text shadow for better readability */
-  animation: fadeIn 1.5s ease-in-out; /* Smooth fade-in animation */
   color: #ffffff;
+  text-shadow: 2px 4px 8px rgba(0, 0, 0, 0.4);
+  overflow: hidden; /* Ensures text doesn't overflow during animation */
+  white-space: nowrap; /* Prevents text from wrapping */
+  border-right: 0.15em solid #ffffff; /* Cursor style */
+  animation: typing 3s steps(40, end) forwards,
+    blink-caret 0.75s step-end infinite;
 }
 
-.hero p {
-  font-size: 1.8rem;
-  margin-bottom: 2rem;
-  font-weight: 400;
-  color: #f5f5f5;
-  text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.3); /* Light shadow for text */
-  animation: fadeIn 2s ease-in-out;
+/* Typing animation */
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 119.5%; /* Adjusted width for full text */
+  }
 }
 
+/* Cursor blink animation */
+@keyframes blink-caret {
+  50% {
+    border-color: transparent;
+  }
+}
+
+/* Call-to-Action Button */
 .cta-button {
   padding: 15px 40px;
   background-color: #a00000; /* Deeper maroon for button */
@@ -146,110 +205,105 @@ h2 {
   transform: scale(1.1); /* Slight hover scaling */
 }
 
-/* Projects Section */
-#projects {
-  background-color: var(--light-bg); /* Light background */
-  color: var(--maroon); /* Use theme color */
-  padding: 50px 0;
-  text-align: center;
+/* Attribute Selectors */
+a[href^="https"] {
+  color: #4a90e2;
+}
+img[alt$="logo"] {
+  border: 1px solid #ccc;
 }
 
-#projects h2:hover {
-  transform: scale(1.1); /* Transforms */
+/* Child Combinator */
+.menu-list > li {
+  padding: 0 8px;
 }
+
+/* Structural Selectors */
+.menu-list li:first-child {
+  font-style: italic;
+}
+.menu-list li:last-child {
+  font-weight: bold;
+}
+
+/* Negation Pseudo-Class */
+.menu-list li:not(:first-child) {
+  padding-left: 5px;
+}
+
+/* Nth Pseudo-Class */
+.menu-list li:nth-child(2) {
+  color: #ffcccb;
+}
+
+/* Validity Pseudo-Class for Forms */
+input:valid {
+  border-color: green;
+}
+input:invalid {
+  border-color: red;
+}
+
+/* Relational Selector */
+h2 + p {
+  margin-top: 10px;
+}
+
+/* Projects Section */
+#projects {
+  background: url("Love and Liberty.jpg") no-repeat center center; /* Add your background image */
+  background-size: cover; /* Ensure the background image covers the entire area */
+  color: var(--maroon); /* Use theme color */
+  padding: 50px 0; /* Space above and below the content */
+  text-align: center; /* Center the text */
+  overflow: hidden; /* Prevents overflow of content */
+  position: relative; /* Required for any absolute positioning within this section */
+}
+
 
 /* Project Grid */
 .project-grid {
   display: flex;
   justify-content: center;
+  align-items: stretch; /* Makes cards the same height if they have different content */
   gap: 30px;
   flex-wrap: wrap;
+  padding: 20px; /* Adds padding around the grid for spacing within the container */
 }
 
 /* Project Card */
 .project-card {
-  background: #fff; /* Keeping the background white for contrast */
+  background: url("Netflix.jpg") no-repeat center center;
+  background-size: cover;
   padding: 20px;
-  border-radius: 10px; /* Rounded corners */
+  border-radius: 10px;
   margin: 10px;
-  box-shadow: 0 4px 10px rgba(174, 0, 0, 0.1); /* Shadows */
-  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transitions */
-  width: 300px; /* Set a fixed width */
-  text-align: center; /* Center text within cards */
-  border: 2px solid var(--maroon); /* Border with AKD theme color */
-  background-color: rgba(159, 0, 0, 0.05); /* Light maroon background for a subtle effect */
-}
-
-/* Video Styling */
-.project-video {
-  width: 100%;
-  height: 200px; /* Adjusted height for uniformity */
-  border-radius: 8px; /* Rounded corners for videos */
-  margin-top: 10px; /* Space above video */
-}
-
-/* Contact Form hero */
-#contact {
-  background: linear-gradient(135deg, #3f0000, #ad1210); /* Gradient */
-  padding: 50px 0;
+  box-shadow: 0 4px 10px rgba(174, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  flex-basis: 300px; /* Allows for responsive resizing */
+  max-width: 300px; /* Ensures cards don't exceed this width */
+  min-height: 250px; /* Ensures consistent height for cards */
   text-align: center;
-}
-
-#contact form {
-  max-width: 600px;
-  margin: auto;
+  border: 2px solid var(--light-bg);
+  color: #ffffff;
   display: flex;
   flex-direction: column;
+  justify-content: space-between; /* Aligns content within card */
+  overflow: hidden;
 }
 
-#contact input,
-#contact textarea {
-  padding: 10px;
-  margin-bottom: 20px;
-  border-radius: 30px; /* Rounded corners */
-  border: 2px solid #800000; /* Border */
-  transition: border-color 0.3s ease; /* Transitions */
+/* Hover Effects */
+.project-card:hover {
+  transform: scale(1.05); /* Slight scaling on hover for effect */
+  box-shadow: 0 6px 15px rgba(174, 0, 0, 0.2); /* Enhances shadow on hover */
 }
 
-input[type="email"] {
-  font-style: italic;
-}
-
-#contact input:valid,
-#contact textarea:valid {
-  border-color: #28a745;
-}
-
-#contact input:invalid,
-#contact textarea:invalid {
-  border-color: #dc3545;
-}
-
-#contact input:focus,
-#contact textarea:focus {
-  border-color: #ffcccb;
-}
-
-#contact button {
-  background: linear-gradient(
-    135deg,
-    #ffcccb,
-    #ff9999
-  ); /* Gradient background */
-  color: #4a1f1f; /* Darker text color for contrast */
-  padding: 12px 24px; /* Slightly larger padding */
-  border: none; /* Remove border for a clean look */
-  border-radius: 50px; /* Fully rounded corners for a modern feel */
-  font-size: 1rem; /* Increased font size */
-  font-weight: bold; /* Bold text */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-  cursor: pointer; /* Pointer cursor on hover */
-  transition: background-color 0.3s ease, transform 0.2s ease; /* Transitions */
-}
-
-#contact button:hover {
-  background-color: #f8f8f8; /* Slightly lighter background on hover */
-  transform: translateY(-2px); /* Slight lift effect on hover */
+/* Video Styling for Consistency */
+.project-card iframe {
+  margin-top: 10px; /* Space above video for text readability */
+  width: 100%;
+  height: 150px; /* Set consistent iframe height */
+  border-radius: 8px; /* Matches card rounding */
 }
 
 /* main Footer home */
@@ -412,48 +466,106 @@ input[type="email"] {
   transform: scale(1.05); /* Slightly enlarge on hover */
 }
 
-/* Card Styles */
+.blog-background {
+  position: relative;
+  min-height: 100vh; /* Ensure it takes up the full viewport height */
+  overflow: hidden; /* Prevents content from going beyond the edges */
+}
+
+.blog-background::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(9, 0, 0, 0.5)),
+    url("pexels-codioful-7135037.jpg") no-repeat center center fixed;
+  background-size: cover;
+  filter: blur(7px);
+  z-index: -1; /* Keep it behind other content */
+}
+
+/* Blog Content Styling */
+.blog-content {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  align-items: stretch;
+}
+
+/* Card Styling */
 .card {
-  background-color: rgb(47, 1, 1);
-  border-radius: 10px; /* Slightly larger border radius */
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2); /* Deeper shadow for depth */
-  padding: 30px; /* Increased padding for better spacing */
-  margin: 20px; /* Adjusted margin for spacing */
+  background: linear-gradient(170deg, #d22412, rgba(170, 54, 54, 0.7));
+  border-radius: 15px; /* Slightly more rounded corners */
+  padding: 20px; /* Increased padding for a spacious feel */
+  color: #ffffff;
   width: calc(
-    45% - 9Z0px
-  ); /* Adjust width to fit two cards per row, accounting for margin */
-  max-width: 600px; /* Maximum width */
-  transition: transform 0.3s, box-shadow 0.3s; /* Smooth transition effects */
-  text-align: left; /* Align text within the card to the right */
-  border: 1px solid #e0e0e0; /* Subtle border for added definition */
-  background-color: #180000; /* Ensure background is white */
+    30% - 30px
+  ); /* Responsive three-column layout with more spacing */
+  max-width: 400px; /* Adjusted maximum width for better consistency */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Deeper shadow for a more 3D effect */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Align items to the top */
+  height: auto; /* Allow height to be determined by content */
+  overflow: hidden; /* Prevents overflow for cleaner edges */
 }
 
-.card:hover {
-  transform: translateY(-5px); /* Slight lift effect on hover */
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Enhance shadow on hover */
-}
-
+/* Card Header */
 .card h2 {
-  margin-top: 0;
-  font-size: 24px; /* Adjusted font size for better readability */
-  color: #ffffff; /* Darker heading color */
-  line-height: 1.2; /* Improved line spacing for readability */
+  color: #ffffff; /* Golden header color */
+  margin-bottom: 15px; /* Increased space below the header */
+  font-size: 1.4em; /* Slightly larger for better visibility */
+  line-height: 1.2; /* Adjust line height for readability */
 }
 
+/* Card Content */
+.card p {
+  flex-grow: 1; /* Allow text to grow and fill space */
+  margin: 10px 0; /* Space between paragraphs */
+  line-height: 1.6; /* Improve readability */
+}
+
+/* List within Card */
 .card ul {
-  padding-left: 20px;
-  margin: 15px 0; /* Add margin for better spacing */
-  list-style-type: square; /* Use square bullets for lists */
+  padding-left: 20px; /* Indentation for list */
+  margin-top: 10px; /* Space above the list */
 }
 
-
-
-.post-date {
-  font-size: 14px; /* Smaller font size for the date */
-  color: #6c757d; /* Grey color for date */
-  margin-bottom: 15px; /* Margin for spacing */
+.card ul li {
+  list-style-type: square; /* Square bullet style */
+  margin: 8px 0; /* Increased space between list items */
 }
+
+/* Card Hover Effect */
+.card:hover {
+  transform: translateY(-8px); /* Slightly less pronounced lift on hover */
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5); /* Stronger shadow on hover */
+}
+
+.link-container {
+  margin-top: 10px; /* Space above the link */
+  text-align: center;
+}
+
+.link-container a {
+  color: #e2b100; /* Link color */
+  text-decoration: underline; /* Underline for links */
+  font-weight: bold; /* Make links bold */
+  transition: color 0.3s ease; /* Smooth color transition */
+}
+
+.link-container a:hover {
+  color: #ffeb3b; /* Change color on hover */
+}
+
 /* //aboutpage */
 #body {
   position: relative; /* Necessary for absolute positioning of the overlay */
@@ -466,87 +578,27 @@ input[type="email"] {
   left: 0;
   right: 0;
   bottom: 0;
-  background: 
-    linear-gradient(rgba(0, 0, 0, 0.5), rgba(9, 0, 0, 0.5)), /* Gradient overlay */
-    url("pexels-codioful-7135037.jpg") no-repeat center center fixed; /* Background image */
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(9, 0, 0, 0.5)),
+    /* Gradient overlay */ url("pexels-codioful-7135037.jpg") no-repeat center
+      center fixed; /* Background image */
   background-size: cover; /* Adjusts the background size */
   filter: blur(7px); /* Adjust the blur level as needed */
   z-index: -100; /* Position behind the content */
 }
 
-
-.anura-container {
-  position: relative; /* Ensures content is above the blurred background */
-  z-index: 1; /* Raise the content above the background */
-}
-
-
-/* Biography Card */
-.anura-biography-card {
-  background: #ffffffd8; /* Background color */
-  color: rgb(0, 0, 0);
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  backdrop-filter: blur(8px);
-  margin: 20px auto;
-  text-align: center; /* Center text */
-  width: 100%; /* Full width */
-  max-width: 1000px; /* Limit maximum width */
-  transition: box-shadow 0.3s ease; /* Smooth shadow transition */
-}
-
-.anura-biography-card:hover {
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Elevate card on hover */
-}
-
 /* Center-align h1, h2, and p elements */
-h1,
+
 h2,
 p {
   margin: 15px 0;
   text-align: center; /* Center text */
-}
-
-/* Hero Section with Blur Effect */
-.anura-hero {
-  position: relative;
-  color: white;
-  background: linear-gradient(135deg, rgba(0, 0, 0, 0.9), rgba(136, 0, 0, 0.8)),
-   ;
-  background-size: cover; /* Ensures the image covers the section */
-  background-position: center center; /* Centers the background image */
-  padding: 80px 20px; /* Increased padding for more emphasis */
-  text-align: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 300px;
-  border-radius: 12px;
-  overflow: hidden;
-}
-
-/* Hero Content */
-.anura-hero-content {
-  max-width: 800px;
-  padding: 20px;
-  z-index: 1;
-}
-
-/* Hero Heading */
-.anura-hero h1 {
-  font-size: 2.5em;
-  font-weight: bold;
-  margin-bottom: 10px;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); /* Soft shadow for depth */
-}
-
-/* Hero Paragraph */
-.anura-hero p {
   font-size: 1.2em;
-  line-height: 1.6;
 }
-
+h1 {
+  margin: 15px 0;
+  text-align: center; /* Center text */
+  font-size: 4em;
+}
 /* Achievements Section */
 .anura-achievements {
   display: flex;
@@ -567,7 +619,6 @@ p {
 
 /* Biography Card */
 .anura-biography-card {
-  background: #ffffffd8; /* Background color */
   color: rgb(0, 0, 0);
   padding: 20px;
   border-radius: 12px;
@@ -576,7 +627,7 @@ p {
   margin: 20px auto; /* Center card */
   text-align: center; /* Center text */
   width: 100%; /* Full width */
-  max-width: 1000px; /* Limit maximum width */
+  max-width: 1200px; /* Limit maximum width */
   transition: box-shadow 0.3s ease; /* Smooth shadow transition */
 }
 
@@ -634,8 +685,6 @@ p {
   margin-bottom: 8px;
 }
 
-
-
 /* Background Blur with Pseudo-element */
 .anura-vision::before {
   content: "";
@@ -652,7 +701,7 @@ p {
 /* Title Styles */
 .anura-section-title {
   text-align: center; /* Center title */
-  font-size: 2.5em; /* Title size */
+  font-size: 2em; /* Title size */
   margin-bottom: 20px; /* Space below the title */
   font-weight: bold; /* Bold title */
   text-transform: uppercase; /* Uppercase for impact */
@@ -691,8 +740,6 @@ p {
   justify-content: center;
   padding: 205px 0;
 }
-
-
 
 .anura-value-item {
   background: linear-gradient(135deg, #d22412, rgba(170, 54, 54, 0.7));
@@ -742,7 +789,6 @@ p {
   line-height: 1.4;
   margin: 0;
 }
-
 
 /* Footer Styles */
 .anura-footer {
@@ -801,94 +847,74 @@ footer {
   color: #ffcc00; /* Gold color on hover */
 }
 
-/* Contact Form conatct page */
-/* General Navbar Styling */
-header nav {
-  background-color: #2d0101; /* Dark red */
-  padding: 10px 0;
-}
-
-header nav ul {
-  list-style-type: none;
-  display: flex;
-  justify-content: center;
-  padding: 0;
-  margin: 0;
-}
-
-header nav ul li {
-  margin: 0 15px;
-}
-
-header nav ul li a {
-  color: #fff; /* White text */
-  text-decoration: none;
-  font-weight: bold;
-  transition: color 0.3s ease;
-}
-
-header nav ul li a:hover {
-  color: #ffcccb; /* Soft pink on hover */
-}
 #contact {
-  background: linear-gradient(135deg, #3f0000, #ad1210); /* Gradient */
-  padding: 50px 0;
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url("pexels-codioful-7135037.jpg") no-repeat center center;
+  background-size: cover;
+  padding: 30px 20px;
   text-align: center;
+  color: #fff;
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 #contact form {
-  max-width: 600px;
+  width: 40%; /* Adjusts the width to 80% of the container */
+  max-width: 800px; /* Increases the maximum width to make it wider */
   margin: auto;
   display: flex;
   flex-direction: column;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 #contact input,
 #contact textarea {
-  padding: 10px;
+  padding: 15px;
   margin-bottom: 20px;
-  border-radius: 30px; /* Rounded corners */
-  border: 2px solid #800000; /* Border */
-  transition: border-color 0.3s ease; /* Transitions */
-}
-
-input[type="email"] {
-  font-style: italic;
+  border-radius: 30px;
+  border: 2px solid #800000;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 #contact input:valid,
 #contact textarea:valid {
   border-color: #28a745;
+  box-shadow: 0 0 5px rgba(40, 167, 69, 0.5);
 }
 
 #contact input:invalid,
 #contact textarea:invalid {
   border-color: #dc3545;
+  box-shadow: 0 0 5px rgba(220, 53, 69, 0.5);
 }
 
 #contact input:focus,
 #contact textarea:focus {
   border-color: #ffcccb;
+  box-shadow: 0 0 5px rgba(255, 204, 203, 0.5);
 }
 
 #contact button {
-  background: linear-gradient(
-    135deg,
-    #ffcccb,
-    #ff9999
-  ); /* Gradient background */
-  color: #4a1f1f; /* Darker text color for contrast */
-  padding: 12px 24px; /* Slightly larger padding */
-  border: none; /* Remove border for a clean look */
-  border-radius: 50px; /* Fully rounded corners for a modern feel */
-  font-size: 1rem; /* Increased font size */
-  font-weight: bold; /* Bold text */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-  cursor: pointer; /* Pointer cursor on hover */
-  transition: background-color 0.3s ease, transform 0.2s ease; /* Transitions */
+  background: linear-gradient(135deg, #ffcccb, #ff9999);
+  color: #4a1f1f;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 50px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease,
+    box-shadow 0.3s ease;
 }
 
 #contact button:hover {
-  background-color: #f8f8f8; /* Slightly lighter background on hover */
-  transform: translateY(-2px); /* Slight lift effect on hover */
+  background-color: #f8f8f8;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
